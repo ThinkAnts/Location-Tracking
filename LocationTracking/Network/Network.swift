@@ -6,37 +6,14 @@
 //
 
 import Foundation
+import UIKit
 
-final class Networking: NetworkService {
-    
-    func basicAuthentication<T>(user: UserModel,
-                                type: T.Type,
-                                completion: @escaping (Result<T, Error>) -> Void) {
-        
-        
-        let login = user.username
-        let password = user.password
-
-        let url = NSURL(string: "http://test.com/api/v1/example.json")
-        let request = NSMutableURLRequest(url: url! as URL)
-
-        let config = URLSessionConfiguration.default
-        let userPasswordString = "\(login):\(password)"
-        let userPasswordData = Data(userPasswordString.utf8)
-        let base64EncodedCredential = userPasswordData.base64EncodedData()
-        let authString = "Basic \(base64EncodedCredential)"
-        config.httpAdditionalHeaders = ["Authorization" : authString]
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request as URLRequest) { (data, response, error) -> Void in
-        }
-        task.resume()
-    }
-    
+final class Networking: NSObject, NetworkService, URLSessionDelegate {
 
     func performNetworkTask<T: Codable>(endpoint: RequestModel,
                                         type: T.Type,
                                         completion: @escaping(Swift.Result<T, Error>) -> Void) {        
-        let urlSession = URLSession.shared.dataTask(with: endpoint.urlRequest()) { (data, urlResponse, error) in
+        let urlSession = Foundation.URLSession.shared.dataTask(with: endpoint.urlRequest()) { (data, urlResponse, error) in
             if let error = error {
                 completion(.failure(error))
                 return
@@ -45,7 +22,7 @@ final class Networking: NetworkService {
                 completion(.failure(error!))
                 return
             }
-            
+
             let response = Response(data: data)
             guard let decodedData = response.decode(type) else {
                 completion(.failure(error!))
@@ -54,5 +31,42 @@ final class Networking: NetworkService {
             completion(.success(decodedData))
         }
         urlSession.resume()
+
+    }
+}
+
+extension Networking {
+    func URLSession(session: URLSession!, didReceiveChallenge challenge: URLAuthenticationChallenge!, completionHandler: ((URLSession.AuthChallengeDisposition, URLCredential?) -> Void)!) {
+
+        if challenge.protectionSpace.authenticationMethod.compare(NSURLAuthenticationMethodServerTrust).rawValue == 0 {
+            if challenge.protectionSpace.host.compare("HOST_NAME").rawValue == 0 {
+                completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
+            }
+
+        } else if challenge.protectionSpace.authenticationMethod.compare(NSURLAuthenticationMethodHTTPBasic).rawValue == 0 {
+            if challenge.previousFailureCount > 0 {
+                print("Alert Please check the credential")
+                completionHandler(Foundation.URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+            } else {
+                let credential = URLCredential(user:"username", password:"password", persistence: .forSession)
+                completionHandler(Foundation.URLSession.AuthChallengeDisposition.useCredential,credential)
+            }
+        }
+
+    }
+
+    func URLSession(session: URLSession!, task: URLSessionTask!, didReceiveChallenge challenge: URLAuthenticationChallenge!, completionHandler: ((URLSession.AuthChallengeDisposition, URLCredential?) -> Void)!){
+
+        print("task-didReceiveChallenge")
+
+        if challenge.previousFailureCount > 0 {
+            print("Alert Please check the credential")
+            completionHandler(Foundation.URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+        } else {
+            let credential = URLCredential(user:"username", password:"password", persistence: .forSession)
+            completionHandler(Foundation.URLSession.AuthChallengeDisposition.useCredential,credential)
+        }
+
+
     }
 }

@@ -22,6 +22,7 @@
 		18AD5075262833A40007EE36 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD5070262833A40007EE36 /* NetworkService.swift */; };
 		18AD5076262833A40007EE36 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD5071262833A40007EE36 /* Response.swift */; };
 		18AD507B262834270007EE36 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD507A262834270007EE36 /* Constants.swift */; };
+		18E93AFC262999740058709E /* LocationRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E93AFB262999740058709E /* LocationRequestModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		18AD5070262833A40007EE36 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		18AD5071262833A40007EE36 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		18AD507A262834270007EE36 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		18E93AFB262999740058709E /* LocationRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationRequestModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				18747EAE2629532F0048C6FC /* LocationViewModel.swift */,
+				18E93AFB262999740058709E /* LocationRequestModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				18747EAF2629532F0048C6FC /* LocationViewModel.swift in Sources */,
 				18AD5051262817280007EE36 /* AppDelegate.swift in Sources */,
 				18AD5053262817280007EE36 /* SceneDelegate.swift in Sources */,
+				18E93AFC262999740058709E /* LocationRequestModel.swift in Sources */,
 				18AD5073262833A40007EE36 /* RequestModel.swift in Sources */,
 				18747EAB262842000048C6FC /* UserModel.swift in Sources */,
 			);
@@ -364,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = LT.LocationTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -383,7 +387,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = LT.LocationTracking;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

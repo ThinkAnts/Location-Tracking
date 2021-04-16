@@ -38,6 +38,12 @@ extension RequestModel {
     func urlRequest() -> URLRequest {
         var endpoint: String = Constants.baseUrl.appending(path).removingPercentEncoding ?? ""
         
+        let username = "test/candidate"
+        let password = "c00e-4764"
+        let loginData = String(format: "%@:%@", username, password).data(using: String.Encoding.utf8)!
+        let base64LoginData = loginData.base64EncodedString()
+        
+        
         for (index,parameter) in parameters.enumerated() {
             if let value = parameter.value as? String {
                 if(index == 0) {
@@ -51,6 +57,8 @@ extension RequestModel {
         var request: URLRequest = URLRequest(url: URL(string: endpoint)!)
         
         request.httpMethod = method.rawValue
+        request.setValue("Basic \(base64LoginData)", forHTTPHeaderField: "Authorization")
+
         
         for header in headers {
             request.addValue(header.value, forHTTPHeaderField: header.key)

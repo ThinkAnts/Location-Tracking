@@ -8,6 +8,6 @@
 import Foundation
 
 class Constants {
-    static let baseUrl = "https://locus-api.com/v1/"
-    static let updateLocation = "/games"
+    static let baseUrl = "https://locus-api.com/v1"
+    static let updateLocation = "/client/test/user/candidate/location"
 }

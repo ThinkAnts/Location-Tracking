@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getUserDetails()
+        getUsersCurrentLocation()
     }
     
     private func getUsersCurrentLocation() {
@@ -85,7 +85,7 @@ extension ViewController: CLLocationManagerDelegate {
             }
             
             if (location.horizontalAccuracy > locationManager!.desiredAccuracy || location.timestamp.timeIntervalSinceNow > 2) {
-                //Need to post updates to API
+                self.viewModel.updateUserLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             } else {
                 print("Last posted location doesnt exceed desired accuracy or time interval")
             }

@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>Location Tracking</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -20,6 +22,12 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow app to track your location. It works best when you allow background location updates.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Allow app to track your location. It works best when you allow background location updates.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow app to track your location. It works best when you allow background location updates.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -53,12 +61,6 @@
 	<array>
 		<string>armv7</string>
 	</array>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Allow app to track your location. It works best when you allow background location updates.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Allow app to track your location. It works best when you allow background location updates.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Allow app to track your location. It works best when you allow background location updates.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
