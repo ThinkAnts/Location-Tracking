@@ -2,7 +2,7 @@
 //  UserModel.swift
 //  LocationTracking
 //
-//  Created by Ravi on 15/04/21.
+//  Created by Naveen on 15/04/21.
 //
 
 import Foundation
