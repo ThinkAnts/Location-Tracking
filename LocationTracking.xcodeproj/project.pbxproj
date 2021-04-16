@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18747EAB262842000048C6FC /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747EAA262842000048C6FC /* UserModel.swift */; };
+		18747EAF2629532F0048C6FC /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747EAE2629532F0048C6FC /* LocationViewModel.swift */; };
 		18AD5051262817280007EE36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD5050262817280007EE36 /* AppDelegate.swift */; };
 		18AD5053262817280007EE36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD5052262817280007EE36 /* SceneDelegate.swift */; };
 		18AD5055262817280007EE36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AD5054262817280007EE36 /* ViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18747EAA262842000048C6FC /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		18747EAE2629532F0048C6FC /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		18AD504D262817280007EE36 /* LocationTracking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationTracking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18AD5050262817280007EE36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18AD5052262817280007EE36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +55,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18747EAD2629531B0048C6FC /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				18747EAE2629532F0048C6FC /* LocationViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		18AD5044262817280007EE36 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +82,7 @@
 		18AD504F262817280007EE36 /* LocationTracking */ = {
 			isa = PBXGroup;
 			children = (
+				18747EAD2629531B0048C6FC /* View Model */,
 				18AD5079262834130007EE36 /* Utilities */,
 				18AD5078262834050007EE36 /* Model */,
 				18AD506C262833690007EE36 /* Network */,
@@ -100,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				18AD506626281E1F0007EE36 /* LocationModel.swift */,
+				18747EAA262842000048C6FC /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,9 +203,11 @@
 				18AD5076262833A40007EE36 /* Response.swift in Sources */,
 				18AD507B262834270007EE36 /* Constants.swift in Sources */,
 				18AD5055262817280007EE36 /* ViewController.swift in Sources */,
+				18747EAF2629532F0048C6FC /* LocationViewModel.swift in Sources */,
 				18AD5051262817280007EE36 /* AppDelegate.swift in Sources */,
 				18AD5053262817280007EE36 /* SceneDelegate.swift in Sources */,
 				18AD5073262833A40007EE36 /* RequestModel.swift in Sources */,
+				18747EAB262842000048C6FC /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,11 +14,12 @@ class ViewController: UIViewController {
     private var isLocationGranted: Bool = false
     @IBOutlet weak var startLocation: UIButton!
     @IBOutlet weak var stopLocation: UIButton!
+    private let viewModel = LocationViewModel()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUsersCurrentLocation()
+        viewModel.getUserDetails()
     }
-    
     
     private func getUsersCurrentLocation() {
         if (CLLocationManager.locationServicesEnabled()) {
@@ -31,7 +32,8 @@ class ViewController: UIViewController {
             updateLocationButtons(true)
         }
     }
-
+    
+   
     @IBAction func startTrackingAction(_ sender: UIButton) {
         if (isLocationGranted) {
             updateLocationButtons(false)
